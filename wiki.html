@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <html>
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Untuk Arum — Semangat!</title>
+  <style>
+    :root{
+      --bg1:#fff0f6;
+      --bg2:#ffeedd;
+      --accent:#ff6b9a;
+      --accent2:#ffb86b;
+      --text:#2b2b2b;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: radial-gradient(1200px 600px at 10% 10%, #fff6fb 0%, var(--bg1) 20%, var(--bg2) 60%), linear-gradient(180deg,#fff 0%, #fffaf0 100%);
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
+      padding:24px;
+    }
+
+    .card{
+      width:100%;
+      max-width:880px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
+      border-radius:18px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      padding:28px;
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:24px;
+      align-items:center;
+      overflow:hidden;
+    }
+
+    /* Left: pesan */
+    .left h1{
+      margin:0 0 8px 0;
+      font-size:36px;
+      letter-spacing:0.2px;
+      color:var(--accent);
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .name-badge{
+      background: linear-gradient(90deg,var(--accent),var(--accent2));
+      color:white;
+      padding:6px 12px;
+      border-radius:999px;
+      font-weight:600;
+      font-size:14px;
+      box-shadow: 0 6px 20px rgba(255,107,154,0.18);
+    }
+
+    .typing{
+      margin:12px 0 18px 0;
+      font-size:20px;
+      line-height:1.4;
+      min-height:54px;
+      color:#333;
+      white-space:pre-wrap;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .btn{
+      padding:10px 14px;
+      border-radius:10px;
+      border:0;
+      cursor:pointer;
+      font-weight:600;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+    .btn-rose{ background:var(--accent); color:white; }
+    .btn-sun{ background:var(--accent2); color:white; }
+    .btn-ghost{ background:transparent; color:var(--text); border:1px solid rgba(0,0,0,0.06); }
+
+    /* Right: bunga + pesan kecil */
+    .right{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      align-items:center;
+    }
+
+    .flower-wrap{
+      width:260px;
+      height:260px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      transform-origin:center;
+      animation: sway 6s ease-in-out infinite;}
+      }
+
+    .stem{
+      position:absolute;
+      bottom:6px;
+      width:10px;
+      height:120px;
+      background:linear-gradient(180deg,#2f8f49,#1f6f34);
+      border-radius:10px;
+      transform:translateY(20px);
+      animation: grow 1.8s ease-out forwards;
+      box-shadow: 0 8px 16px rgba(31,111,52,0.08);
+    }
+
+    .leaf{
+      position:absolute;
+      width:70px;
+      height:36px;
+      background:linear-gradient(90deg,#2fae59,#1f7f3a);
+      border-radius:40px 40px 40px 40px;
+      box-shadow: 0 6px 14px rgba(31,111,52,0.12);
+      opacity:0;
+    }
+    .leaf.left { left:30px; bottom:60px; transform:rotate(-30deg); animation: leafIn .8s ease forwards; animation-delay: 1s; }
+    .leaf.right{ right:30px; bottom:90px; transform:rotate(30deg); animation: leafIn .8s ease forwards; animation-delay: 1.2s; }
+
+    .petals{ position:relative; width:180px; height:180px; display:grid; place-items:center; transform:scale(0); animation: petalPop 1s cubic-bezier(.2,.9,.2,1) forwards; animation-delay:1.6s; }
+
+    .petal{
+      position:absolute;
+      width:84px;
+      height:110px;
+      background: linear-gradient(180deg,#ffd1e0,#ff85b3);
+      border-radius:60% 60% 45% 45%;
+      top:30px;
+      left:50%;
+      transform-origin:50% 80%;
+      box-shadow: 0 8px 18px rgba(255,107,154,0.12), inset -4px -6px 10px rgba(255,255,255,0.06);
+    }
+    /* arrange petals */
+    .petal.p1{ transform: translateX(-50%) rotate(0deg) translateY(-12px); }
+    .petal.p2{ transform: translateX(-50%) rotate(60deg) translateY(-12px); }
+    .petal.p3{ transform: translateX(-50%) rotate(120deg) translateY(-12px); }
+    .petal.p4{ transform: translateX(-50%) rotate(180deg) translateY(-12px); }
+    .petal.p5{ transform: translateX(-50%) rotate(240deg) translateY(-12px); }
+    .petal.p6{ transform: translateX(-50%) rotate(300deg) translateY(-12px); }
+
+    .center {
+      width:74px;height:74px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #fff9a6 0%, #ffd34f 30%, #ffb86b 100%);
+      box-shadow: 0 6px 18px rgba(255,160,90,0.18);
+      transform:scale(0.9);
+      animation: centerBounce 1s ease forwards;
+      animation-delay:1.9s;
+    }
+
+    /* small supportive note */
+    .note{
+      background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+      padding:12px 14px;
+      border-radius:12px;
+      text-align:center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      font-weight:600;
+      color:#333;
+    }
+
+    /* animations */
+    @keyframes petalPop {
+      from{ transform:scale(0); opacity:0 }
+      to{ transform:scale(1); opacity:1 }
+    }
+    @keyframes centerBounce {
+      from{ transform:scale(0) }
+      to{ transform:scale(0.95) }
+    }
+    @keyframes leafIn {
+      from{ transform:scale(0.4) rotate(0deg); opacity:0 }
+      to{ transform:scale(1) opacity:1 }
+    }
+    @keyframes grow {
+      from{ height:0; transform:translateY(40px) }
+      to{ height:120px; transform:translateY(0) }
+    }
+    @keyframes sway {
+      0%{ transform: rotate(-2deg) }
+      50%{ transform: rotate(3deg) }
+      100%{ transform: rotate(-2deg) }
+    }
+
+    /* typing cursor */
+    .typing .cursor {
+      display:inline-block;
+      width:2px;
+      height:24px;
+      background:var(--accent);
+      margin-left:6px;
+      vertical-align:middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink{ 50%{opacity:0} }
+
+    /* responsive */
+    @media (max-width:880px){
+      .card{ grid-template-columns: 1fr; padding:20px; gap:18px; }
+      .right{ order:-1; }
+      .petals{ transform:scale(0.85) }
+      .flower-wrap{ width:220px; height:220px }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" role="main" aria-label="Semangat untuk Arum">
+    <div class="left">
+      <h1>
+        Semangat, <span class="name-badge">Arum</span>
+      </h1>
+
+      <div class="typing" id="typingArea" aria-live="polite"></div>
+
+      <div class="actions">
+        <button class="btn btn-rose" id="nextMsgBtn">Pesan Selanjutnya</button>
+        <button class="btn btn-sun" id="cheerBtn">Kirim Semangat 🌸</button>
+        <button class="btn btn-ghost" id="customBtn">Ketik Pesan Sendiri</button>
+      </div>
+
+      <div style="margin-top:14px; color:#555; font-size:14px;">
+        <strong>Tip:</strong> Tekan <em>Pesan Selanjutnya</em> untuk lihat pesan semangat yang lain.
+      </div>
+    </div>
+
+    <div class="right" aria-hidden="false">
+      <div class="flower-wrap" id="flowerWrap" title="Bunga untuk Arum">
+        <div class="stem" aria-hidden="true"></div>
+        <div class="leaf left" aria-hidden="true"></div>
+        <div class="leaf right" aria-hidden="true"></div>
+
+        <div class="petals" aria-hidden="true">
+          <div class="petal p1"></div>
+          <div class="petal p2"></div>
+          <div class="petal p3"></div>
+          <div class="petal p4"></div>
+          <div class="petal p5"></div>
+          <div class="petal p6"></div>
+          <div class="center"></div>
+        </div>
+      </div>
+
+      <div class="note" id="noteBox">Kamu kuat, Arum. Satu langkah kecil hari ini lebih berarti dari seribu rencana.</div>
+    </div>
+  </div>
+
+  <script>
+    // daftar pesan semangat
+    const messages = [
+      "Hai Arum 🌸\nIngat, hari ini kamu sudah berusaha. Itu luar biasa.",
+      "Arum, jangan lupa istirahat kalau capek. Rehat sebentar bukan tanda menyerah.",
+      "Langkah kecil pun penting. Pelan-pelan tapi pasti — kamu bisa.",
+      "Kegagalan bukan akhir. Itu pelajaran yang bikin kamu lebih kuat.",
+      "Ada yang sayang sama kamu. Tarik napas, lalu coba lagi. 💪",
+      "Senyum kamu itu energi. Jangan lupa tersenyum hari ini, Arum 😊"
+    ];
+
+    let idx = 0;
+    const typingArea = document.getElementById('typingArea');
+    const noteBox = document.getElementById('noteBox');
+
+    function typeText(text, speed=28){
+      // hapus dulu
+      typingArea.innerHTML = '';
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor';
+      let i = 0;
+      function step(){
+        if(i <= text.length){
+          typingArea.textContent = text.slice(0,i);
+          if(i === text.length) {
+            // tambahin cursor kecil (non-blocking)
+            if(!typingArea.querySelector('.cursor')) typingArea.appendChild(cursor);
+          } else {
+            if(typingArea.querySelector('.cursor')) typingArea.removeChild(cursor);
+          }
+          i++;
+          setTimeout(step, speed);
+        }
+      }
+      step();
+    }
+
+    // tampilkan pesan awal
+    typeText(messages[idx]);
+
+    // tombol pesan selanjutnya
+    document.getElementById('nextMsgBtn').addEventListener('click', ()=>{
+      idx = (idx + 1) % messages.length;
+      typeText(messages[idx]);
+      // ubah note singkat random
+      const shortNotes = [
+        "Langkah kecil = kemajuan.",
+        "Satu hari lebih dekat ke tujuan.",
+        "Kamu lebih kuat dari yang kamu kira.",
+        "Semangat ya, Arum!",
+        "Tarik napas. Kamu bisa."
+      ];
+      noteBox.textContent = shortNotes[Math.floor(Math.random()*shortNotes.length)];
+      // tambahin sedikit goyangan bunga
+      const f = document.getElementById('flowerWrap');
+      f.animate([{transform:'scale(1)'}, {transform:'scale(1.03) rotate(3deg)'}, {transform:'scale(1) rotate(0)'}], {duration:700, easing:'ease-out'});
+    });
+
+    // tombol cheer: sementara efek visual + pesan toast sederhana
+    document.getElementById('cheerBtn').addEventListener('click', ()=>{
+      // confetti sederhana pakai elemen kecil
+      for(let i=0;i<18;i++){
+        const s = document.createElement('span');
+        s.textContent = '🌟';
+        s.style.position='fixed';
+        s.style.left = (50 + (Math.random()-0.5)*40) + '%';
+        s.style.top = (30 + Math.random()*40) + '%';
+        s.style.fontSize = (12 + Math.random()*20) + 'px';
+        s.style.opacity = '0.0';
+        s.style.pointerEvents='none';
+        s.style.transform = 'translateY(0) scale(0.6)';
+        document.body.appendChild(s);
+        const dur = 900 + Math.random()*700;
+        s.animate([
+          { opacity:0, transform:'translateY(0) scale(0.6)'},
+          { opacity:1, transform:'translateY(-60px) scale(1)'},
+          { opacity:0, transform:'translateY(-120px) scale(0.6)'}
+        ], { duration: dur, easing:'cubic-bezier(.2,.9,.2,1)'});
+        setTimeout(()=> s.remove(), dur + 50);
+      }
+      // ubah teks note
+      noteBox.textContent = "Bunga + semangat terkirim untuk Arum 🌸✨";
+      // quick flower pulse
+      const petals = document.querySelector('.petals');
+      petals.animate([{transform:'scale(1)'},{transform:'scale(1.08)'},{transform:'scale(1)'}], {duration:800, easing:'ease-in-out'});
+    });
+
+    // tombol custom: prompt untuk pesan custom
+    document.getElementById('customBtn').addEventListener('click', async ()=>{
+      const custom = prompt('Ketik pesan untuk Arum (maks 200 karakter):','Kamu hebat, Arum! Tetap semangat ❤️');
+      if(custom && custom.trim()){
+        typeText(custom.trim());
+        noteBox.textContent = "Pesan pribadi terkirim 💌";
+      }
+    });
+
+    // aksesibilitas: tekan space pada tombol untuk aksi juga
+    Array.from(document.querySelectorAll('button')).forEach(btn=>{
+      btn.addEventListener('keydown', e=>{
+        if(e.key === ' ' || e.key === 'Enter') { e.preventDefault(); btn.click (); }
+                     });
+    });
+  </script>
+  </body>
+</html>
+</body>
+</html>
